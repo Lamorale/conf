@@ -2,6 +2,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set number
 set laststatus=2
 set noshowmode
 set background=dark
@@ -47,7 +48,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-if executable('clangd-9')
+if executable('clangd')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd-9',
         \ 'cmd': {server_info->['clangd-9', '-background-index']},
@@ -60,30 +61,9 @@ if executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'whitelist': ['python'],
-        \ })                         
+        \ })
 endif
-" David config
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-" imap <c-space> <Plug>(asyncomplete_force_refresh)
 
-" let g:lsp_signs_error       = {'text': '✗'}
-" let g:lsp_signs_warning     = {'text': '⚠'}
-" let g:lsp_signs_information = {'text': 'ℹ'}
-" let g:lsp_signs_hint        = {'text': '⇗'}
-
-" autocmd FileType c nmap gd    <plug>(lsp-definition)
-" autocmd FileType c nmap ge    <plug>(lsp-document-diagnostics)
-" autocmd FileType c nmap K     <plug>(lsp-hover)
-" autocmd FileType c nmap gs    <plug>(lsp-document-symbol)
-" autocmd FileType c nmap gr    <plug>(lsp-references)
-" autocmd FileType c nmap gm    <plug>(lsp-rename)
-" autocmd FileType c nmap <C-k> <plug>(lsp-previous-reference)
-" autocmd FileType c nmap <C-j> <plug>(lsp-next-reference)
-" autocmd FileType c nmap gu    <plug>(lsp-status)
-
-" Custom config
 let g:lsp_signs_enabled           = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_signs_error             = {'text': '✗'}
@@ -116,7 +96,9 @@ Plug 'mxw/vim-jsx'
 " Initialize plugin system
 call plug#end()
 
+:autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 colorscheme solarized
+:match ExtraWhitespace /\s\+$/
 
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
