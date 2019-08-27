@@ -11,14 +11,16 @@ syntax on
 
 "MAPPINGS
 let mapleader = ","
-:map <leader>f :FZF<CR>
-:map <leader>a :Ag<CR>
-:map <leader>h :A<CR>
-:map <leader>t :NERDTreeToggle<CR>
+map <leader>f :FZF<CR>
+map <leader>a :Ag<CR>
+map <leader>h :A<CR>
+map <leader>t :NERDTreeToggle<CR>
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+" Replace pointed word by register 0
+nmap <C-j> ciw<C-r>0<ESC>
 
 "PLUGINS
 
@@ -100,5 +102,6 @@ call plug#end()
 colorscheme solarized
 :match ExtraWhitespace /\s\+$/
 
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims     = 1
 let g:NERDCompactSexyComs = 1
+let g:NERDTreeShowHidden  = 1
