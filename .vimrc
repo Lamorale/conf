@@ -20,7 +20,7 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 " Replace pointed word by register 0
-nmap <C-j> ciw<C-r>0<ESC>
+nmap <C-p> ciw<C-r>0<ESC>
 
 "PLUGINS
 
@@ -79,6 +79,9 @@ let g:lsp_signs_hint              = {'text': '⇗'}
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled   = 1
 
+" prevent erasing next characters after autocomplete
+let g:lsp_text_edit_enabled  = 0
+
 highlight link LspErrorText Error
 highlight link LspWarningText Warning
 
@@ -88,6 +91,8 @@ nmap <leader>w <plug>(lsp-next-reference)
 nmap <leader>q <plug>(lsp-previous-reference)
 nmap <leader>v <plug>(lsp-rename)
 
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
