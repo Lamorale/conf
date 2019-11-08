@@ -68,6 +68,13 @@ if executable('pyls')
         \ 'whitelist': ['python'],
         \ })
 endif
+if executable('bash-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'bash-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+        \ 'whitelist': ['sh'],
+        \ })
+endif
 
 let g:lsp_signs_enabled           = 1
 let g:lsp_diagnostics_echo_cursor = 1
