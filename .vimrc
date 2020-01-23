@@ -16,6 +16,7 @@ map <leader>f :FZF<CR>
 map <leader>a :Ag<CR>
 map <leader>h :A<CR>
 map <leader>t :NERDTreeToggle<CR>
+map <leader>z :NERDTreeFind<CR>
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
