@@ -24,6 +24,8 @@ nmap ga <Plug>(EasyAlign)
 " Replace pointed word by register 0
 nmap <C-p> ciw<C-r>0<ESC>
 
+nnoremap gr gT
+
 "PLUGINS
 
 " Specify a directory for plugins
