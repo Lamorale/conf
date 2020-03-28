@@ -56,8 +56,7 @@ Plug 'prabirshrestha/async.vim'
 
 " LSP CONFIGURATION
 Plug 'prabirshrestha/vim-lsp'
-Plug 'ryanolsonx/vim-lsp-javascript' " For automatically register javascript
-if executable('clangd')
+if executable('clangd-9')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd-9',
         \ 'cmd': {server_info->['clangd-9', '-background-index']},
@@ -89,6 +88,7 @@ let g:lsp_signs_hint              = {'text': '⇗'}
 
 let g:lsp_highlights_enabled = 1
 let g:lsp_textprop_enabled   = 1
+let g:lsp_highlight_references_enabled = 1
 
 " prevent erasing next characters after autocomplete
 let g:lsp_text_edit_enabled  = 0
