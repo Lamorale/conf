@@ -56,6 +56,7 @@ Plug 'prabirshrestha/async.vim'
 
 " LSP CONFIGURATION
 Plug 'prabirshrestha/vim-lsp'
+Plug 'ryanolsonx/vim-lsp-javascript' " For automatically register javascript
 if executable('clangd-9')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd-9',
